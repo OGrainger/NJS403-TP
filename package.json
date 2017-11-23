@@ -1,0 +1,26 @@
+{
+  "name": "njs403-tp",
+  "version": "0.1.0",
+  "description": "small school project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha -w",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OGrainger/NJS403-TP.git"
+  },
+  "author": "Grainger - Lambert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OGrainger/NJS403-TP/issues"
+  },
+  "homepage": "https://github.com/OGrainger/NJS403-TP#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "express": "^4.16.2",
+    "sinon": "^4.1.2"
+  }
+}
