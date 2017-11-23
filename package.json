@@ -4,9 +4,8 @@
   "description": "small school project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "test:watch": "mocha -w",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov -t a94a0ba1-e6de-4d41-9849-2b0c0672241f"
   },
   "repository": {
     "type": "git",
@@ -21,6 +20,8 @@
   "dependencies": {
     "chai": "^4.1.2",
     "express": "^4.16.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
     "sinon": "^4.1.2"
   }
 }
