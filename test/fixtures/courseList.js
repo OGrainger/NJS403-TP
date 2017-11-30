@@ -1,8 +1,9 @@
 const { courseList } = require('../../data/db');
+const UUID = require('../../utils/uuid-generator');
 
 const mockData = [
-  { id: 1, name: 'Toto' },
-  { id: 2, name: 'Ma liste' }
+  { id: UUID.generate(), name: 'Toto' },
+  { id: UUID.generate(), name: 'Ma liste' }
 ];
 
 module.exports = {
