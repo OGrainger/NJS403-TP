@@ -8,7 +8,7 @@
     "dev": "nodemon app.js",
     "test": "mocha ./test/**/*.spec.js --reporter dot",
     "test:watch": "mocha -w ./test/**/*.spec.js --reporter dot",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov -t a94a0ba1-e6de-4d41-9849-2b0c0672241f"
+    "cover": "istanbul cover mocha ./test/**/*.spec.js --report lcovonly -- -R spec && codecov -t a94a0ba1-e6de-4d41-9849-2b0c0672241f"
   },
   "author": "",
   "license": "ISC",
