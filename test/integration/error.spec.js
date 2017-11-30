@@ -6,7 +6,7 @@ const app = require('../../app');
 describe('Errors', () => {
     describe('when route does not exist', () => {
         it('should return a 404', () => {
-            return request(app).get('/i-know-this-path-doesn-exist').then((res) => {
+            return request(app).get('/i-know-this-path-does-not-exist').then((res) => {
                 res.status.should.equal(404);
                 res.body.should.eql({
                     error: {

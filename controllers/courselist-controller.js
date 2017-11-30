@@ -5,8 +5,15 @@ const generator = require('../utils/uuid-generator');
 const {find} = require('lodash');
 
 const db = require('../data/db');
-const courseListCollection = db.courseList;
-const articleListCollection = db.articleList;
+let courseListCollection = db.courseList;
+let articleListCollection = db.articleList;
+
+
+router.get('/', (req, res) => {
+    res.status(200).json({
+        data: db.courseList
+    })
+});
 
 router.post('/', (req, res, next) => {
     if (!req.body.name) {
@@ -32,9 +39,19 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.get('/', (req, res) => {
+router.delete('/:listId', (req, res, next) => {
+
+    const id = req.params.listId;
+
+    //Check for list existence
+    const elToRemove = find(courseListCollection, {id});
+    if (!elToRemove) {
+        return next(new BadRequestError('VALIDATION', 'List does not exist'))
+    }
+
+    courseListCollection = courseListCollection.filter(el => el.id !== elToRemove.id);
     res.status(200).json({
-        data: db.courseList
+        data: courseListCollection
     })
 });
 
