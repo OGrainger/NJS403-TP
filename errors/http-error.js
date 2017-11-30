@@ -1,6 +1,6 @@
 module.exports = class HttpError extends Error {
   constructor (message) {
-    super(message)
+    super(message);
     this.statusCode = 500
   }
 
@@ -10,4 +10,4 @@ module.exports = class HttpError extends Error {
       message: this.message || 'Unknown error occured'
     }
   }
-}
+};

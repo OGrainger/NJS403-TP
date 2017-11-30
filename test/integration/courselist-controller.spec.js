@@ -33,7 +33,7 @@ describe('CourselistController', () => {
         .post('/course-lists')
         .send({ name: 'Toto' })
         .then((res) => {
-          res.status.should.equal(400)
+          res.status.should.equal(400);
           res.body.should.eql({
             error: {
               code: 'VALIDATION',
