@@ -7,7 +7,7 @@ module.exports = {
         const mockData = [
             {id: UUID.generate(), name: 'Apples', list: courseList[0].id},
             {id: UUID.generate(), name: 'Oranges', list: courseList[0].id},
-            {id: UUID.generate(), name: 'Bananas', list: courseList[1].id}
+            {id: UUID.generate(), name: 'Pineapples', list: courseList[1].id}
         ];
 
         articleList.splice(0);
