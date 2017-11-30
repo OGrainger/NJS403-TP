@@ -26,9 +26,14 @@ router.post('/', (req, res, next) => {
     };
 
     courseListCollection.push(newCourseList);
-
-    res.json({
+    res.status(201).json({
         data: newCourseList
+    })
+});
+
+router.get('/', (req, res) => {
+    res.status(200).json({
+        data: db.courseList
     })
 });
 
