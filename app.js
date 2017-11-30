@@ -1,25 +1,28 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express();
-const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express();
+
+const courselistRouter = require('./controllers/courselist-controller');
+
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+// app.get('/', (req, res, next) => {
+//   req.send('OK')
+// })
 
-var router = express.Router();
+app.use('/course-lists', courselistRouter);
 
-
-router.get('/test', function (req, res) {
-    res.json({message : 'good'})
+app.use((req, res, next) => {
+    res.status(404);
+    res.json({
+        error: {code: 'NOT_FOUND', message: 'Page not found'}
+    })
 });
 
-app.get('/', function (req, res) {
-    res.json({message : 'Please use /api routes'})
-});
-app.use('/api', router);
-
-app.listen(port, function () {
-    console.log('app listening on port ' + port);
+app.listen(3000, () => {
+    console.log('Server launched on port 3000')
 });
 
+module.exports = app;

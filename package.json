@@ -1,28 +1,25 @@
 {
-  "name": "njs403-tp",
-  "version": "0.1.0",
-  "description": "small school project",
+  "name": "tp",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov -t a94a0ba1-e6de-4d41-9849-2b0c0672241f"
+    "dev": "nodemon app.js",
+    "test": "mocha ./test/**/*.spec.js --reporter dot",
+    "test:watch": "mocha -w ./test/**/*.spec.js --reporter dot"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OGrainger/NJS403-TP.git"
-  },
-  "author": "Grainger - Lambert",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OGrainger/NJS403-TP/issues"
-  },
-  "homepage": "https://github.com/OGrainger/NJS403-TP#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "chai": "^4.1.2",
     "express": "^4.16.2",
-    "istanbul": "^0.4.5",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "sinon": "^4.1.2"
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
   }
 }
