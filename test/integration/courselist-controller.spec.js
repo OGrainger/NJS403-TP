@@ -81,6 +81,39 @@ describe('CourselistController', () => {
                     expect(res.body.data).to.be.an('Array');
                     res.body.data.should.eql(db.courseList);
                 })
+        });
+    });
+
+    describe('When I remove a courseList (DELETE /course-lists', () => {
+        xit('should delete successfully when id exists', () => {
+            const listId = db.courseList[0].id;
+
+            return request(app)
+                .delete('/course-lists/' + listId)
+                .then((res) => {
+                    res.status.should.equal(200);
+                    res.body.data.name.should.equal(db.courseList);
+                    const result = db.courseList.length();
+                    result.should.be.equal(1);
+                });
+        });
+
+        xit('should reject when id does not exist', () => {
+            const listId = '4';
+
+            return request(app)
+                .delete('/course-lists/', +listId)
+                .then((res) => {
+                    res.status.should.equal(400);
+                    res.body.should.eql({
+                        error: {
+                            code: 'SUPPRESSION',
+                            message: 'Missing name'
+                        }
+                    })
+                })
+
+
         })
     });
 
@@ -153,5 +186,4 @@ describe('CourselistController', () => {
                 })
         })
     });
-
 });
