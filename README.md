@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/OGrainger/NJS403-TP/branch/master/graph/badge.svg)](https://codecov.io/gh/OGrainger/NJS403-TP)
 
 
-Starter for the tp
+![Image of Yaktocat](https://i.imgur.com/xLFhxqv.png)
 
 ## Getting started
 
@@ -18,3 +18,6 @@ Starter for the tp
 ### Launch test
 
 `npm test`
+
+### Code Coverage
+`npm run cover`
