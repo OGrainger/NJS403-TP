@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 const BadRequestError = require('../errors/bad-request');
 const generator = require('../utils/uuid-generator');
 const {find} = require('lodash');
