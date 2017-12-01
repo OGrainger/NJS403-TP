@@ -5,6 +5,14 @@
 
 ![Image of Yaktocat](https://i.imgur.com/xLFhxqv.png)
 
+- [x] GL-0
+- [x] GL-1
+- [x] GL-2
+- [x] GL-3
+- [x] GL-4
+- [ ] GL-5
+- [x] GL-6
+
 ## Getting started
 
 ### Prerequisite
