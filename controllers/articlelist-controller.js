@@ -41,4 +41,33 @@ router.post('/', (req, res, next) => {
     })
 });
 
+router.put('/:articleId/bought', (req, res, next) => {
+
+    const articleId = req.params.articleId;
+    const listId = req.params.listId;
+
+    //Check for list existence
+    const listChecker = find(courseListCollection, {id: listId});
+    if (!listChecker) {
+        return next(new BadRequestError('VALIDATION', 'List does not exist'))
+    }
+
+    //Check for list existence
+    const articleChecker = find(articleListCollection, {id: articleId});
+    if (!articleChecker) {
+        return next(new BadRequestError('VALIDATION', 'Article does not exist'))
+    }
+    let returnedArticle = articleChecker;
+
+    articleListCollection = articleListCollection.map(article => {
+        if (article.id === articleId) {
+            article.bought = !article.bought;
+            returnedArticle = article;
+        }
+    });
+    res.status(201).json({
+        data: returnedArticle
+    })
+});
+
 module.exports = router;
