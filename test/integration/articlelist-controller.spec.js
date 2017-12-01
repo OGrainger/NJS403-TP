@@ -149,5 +149,16 @@ describe('ArticleListController', () => {
                     })
                 })
         })
+    describe('When I fetch all alticleList (GET /course-lists/:courseListId/article)', () => {
+        it('should successfully fetch all articleLists', () => {
+            const listId = req.param.listId;
+            return request(app)
+                .get('/course-list/' + listId + '/article')
+                .then((res) => {
+                    res.status.should.equal(200);
+                    expect(res.body.data).to.be.an('Array');
+                    res.body.data.should.eql(db.articleList.filter(article => article.list === listId));
+                });
+        });
     })
 });
