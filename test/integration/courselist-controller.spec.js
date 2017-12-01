@@ -10,12 +10,15 @@ const db = require('../../data/db');
 const app = require('../../app');
 
 const courseListFixture = require('../fixtures/courseList');
+const articleListFixture = require('../fixtures/articleList');
 
 beforeEach(() => {
-    courseListFixture.up();
+    let courseList = courseListFixture.up();
+    articleListFixture.up(courseList);
 });
 afterEach(() => {
     courseListFixture.down();
+    articleListFixture.down();
 });
 
 describe('CourseListController', () => {
@@ -110,8 +113,6 @@ describe('CourseListController', () => {
                         }
                     })
                 })
-
-
         })
     });
 });

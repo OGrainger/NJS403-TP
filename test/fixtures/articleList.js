@@ -10,8 +10,7 @@ module.exports = {
             {id: UUID.generate(), name: 'Pineapples', list: courseList[1].id, bought: false}
         ];
 
-        articleList.splice(0);
-        articleList.push.apply(articleList, mockData);
+        [].push.apply(articleList, mockData);
     },
 
     down: () => {

@@ -56,6 +56,6 @@ router.delete('/:listId', (req, res, next) => {
     })
 });
 
-router.use('/:listId/article', articleListRouter);
+router.use('/:listId/articles', articleListRouter);
 
 module.exports = router;
