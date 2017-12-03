@@ -8,6 +8,21 @@ const db = require('../data/db');
 let courseListCollection = db.courseList;
 let articleListCollection = db.articleList;
 
+router.get('/', (req, res, next) => {
+
+    const listId = req.params.listId;
+
+    //Check for list existence
+    const listChecker = find(courseListCollection, {id: listId});
+    if (!listChecker) {
+        return next(new BadRequestError('VALIDATION', 'List does not exist'))
+    }
+    let result = articleListCollection.filter(article => article.list === listId);
+    res.status(200).json({
+        data: result
+    })
+});
+
 router.post('/', (req, res, next) => {
     if (!req.body.name) {
         return next(new BadRequestError('VALIDATION', 'Missing name'))
@@ -32,7 +47,8 @@ router.post('/', (req, res, next) => {
     const newArticle = {
         id: generator.generate(),
         name,
-        list: listId
+        list: listId,
+        bought: false
     };
 
     articleListCollection.push(newArticle);
@@ -52,7 +68,7 @@ router.put('/:articleId/bought', (req, res, next) => {
         return next(new BadRequestError('VALIDATION', 'List does not exist'))
     }
 
-    //Check for list existence
+    //Check for article existence
     const articleChecker = find(articleListCollection, {id: articleId});
     if (!articleChecker) {
         return next(new BadRequestError('VALIDATION', 'Article does not exist'))
@@ -65,7 +81,7 @@ router.put('/:articleId/bought', (req, res, next) => {
             returnedArticle = article;
         }
     });
-    res.status(201).json({
+    res.status(200).json({
         data: returnedArticle
     })
 });

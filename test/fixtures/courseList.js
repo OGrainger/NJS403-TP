@@ -8,8 +8,7 @@ const mockData = [
 
 module.exports = {
     up: () => {
-        courseList.splice(0);
-        courseList.push.apply(courseList, mockData);
+        [].push.apply(courseList, mockData);
         return courseList;
     },
 
