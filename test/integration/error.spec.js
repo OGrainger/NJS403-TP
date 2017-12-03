@@ -17,4 +17,17 @@ describe('Errors', () => {
             })
         })
     });
+    describe('when trying to access admin', () => {
+        it('should return an error', () => {
+            return request(app).get('/admin').then((res) => {
+                res.status.should.equal(500);
+                res.body.should.eql({
+                    error: {
+                        code: 'ServerError',
+                        message: 'NOT_IMPLEMENTED'
+                    }
+                })
+            })
+        })
+    });
 });

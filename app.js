@@ -10,11 +10,11 @@ const courselistRouter = require('./controllers/courselist-controller');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-// app.get('/', (req, res, next) => {
-//   req.send('OK')
-// })
-
 app.use('/course-lists', courselistRouter);
+
+app.use('/admin', (req, res, next) => {
+    return next(new Error('NOT_IMPLEMENTED'));
+});
 
 app.use((req, res, next) => {
     return next(new NotFoundError())
