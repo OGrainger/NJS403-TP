@@ -10,12 +10,14 @@
 - [x] GL-2
 - [x] GL-3
 - [x] GL-4
-- [ ] GL-5
+- [x] GL-5
 - [x] GL-6
 
 ## Getting started
 
 ### Prerequisite
+
+ - Mocha ( `npm install -g mocha` )
 
 `npm install`
 
@@ -27,5 +29,19 @@
 
 `npm test`
 
+### Launch test with watch
+`npm run test:watch`
+
 ### Code Coverage
 `npm run cover`
+
+## Interactions
+
+- GET /courses-list => fetches all lists
+- POST /courses-list (body example : {'name': 'list_test'}) => creates a list
+- DELETE /courses-list/<LIST_UUID>  => deletes given list
+
+- GET /courses-list/<LIST_UUID>/articles  => fetches all articles belonging to given list
+- POST /courses-list/<LIST_UUID>/articles (body example : {'name':'article_test'}) => creates an article for given list
+- PUT /courses-list/<LIST_UUID>/articles/<ARTICLE_UUID>/bought  => updates given article as bought
+
