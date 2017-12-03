@@ -45,3 +45,7 @@
 - POST /courses-list/<LIST_UUID>/articles (body example : {'name':'article_test'}) => creates an article for given list
 - PUT /courses-list/<LIST_UUID>/articles/<ARTICLE_UUID>/bought  => updates given article as bought
 
+## Credits
+
+- **Oscar Grainger** - _oscarvgrainger@gmail.com_
+- **Clément Lambert** - _clement.lambert@ynov.com_
